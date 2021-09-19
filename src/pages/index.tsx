@@ -2,7 +2,6 @@ import { Row, Col } from "antd";
 import styled from "styled-components";
 import RecipeCard from "../components/recipe/RecipeCard";
 import { useAppContext } from "../AppContext"
-import {Recipe } from "../types";
 
 const Container = styled.div`
   width: 100%;
@@ -33,9 +32,7 @@ const Header = styled.div`
 
 const Home = () => {
   const { recipes } = useAppContext()
-  const onClick = (id: string) => {
-    // Todo: redirect to details view page
-  };
+  console.log(recipes)
   return (
     <Container>
       <Header/>
@@ -46,7 +43,6 @@ const Home = () => {
               title={r.title}
               imageUrl={`https:${r.photo.url}`}
               recipeId={r.id}
-              onClick={onClick}
             />
           </Col>
         ))}

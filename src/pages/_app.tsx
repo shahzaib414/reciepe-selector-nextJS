@@ -51,7 +51,7 @@ MyApp.getInitialProps = async () => {
         )?.fields.name,
       };
     });
-
+    console.log(entryItem.fields.chef)
     return {
       ...entryItem.fields,
       ...(entryItem.fields.chef && {
@@ -59,7 +59,7 @@ MyApp.getInitialProps = async () => {
           ...entryItem.fields.chef,
           name:
             entries.includes?.Entry.find(
-              (e) => e.sys.contentType.sys.id === entryItem.fields.chef?.sys.id
+              (e) => e.sys.id === entryItem.fields.chef?.sys.id
             )?.fields.name || "",
         },
       }),

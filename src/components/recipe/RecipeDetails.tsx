@@ -2,6 +2,7 @@ import React from "react";
 import { Recipe } from "../../types";
 import Styled from "styled-components";
 import Tag from "../common/Tag";
+import { getTitles } from "../../utils";
 
 type Props = {
   recipe: Recipe;
@@ -65,13 +66,13 @@ const Container = Styled.div`
 `;
 
 const RecipeDetails = (props: Props) => {
-  const titles = props.recipe.title.split("with");
+    const {title, subTitle} = getTitles(props.recipe.title);
   return (
     <Container>
       <img src={`https:${props.recipe.photo.url}`} />
       <div className="details-wrapper">
-        <h2> {titles[0]} </h2>
-        <h3> {`with ${titles[1]}`} </h3>
+        <h2> {title} </h2>
+        <h3> {subTitle} </h3>
         <div className="tag-wrapper">
           {props.recipe.tags?.map((t) => (
             <Tag>{t.name?.toUpperCase()}</Tag>

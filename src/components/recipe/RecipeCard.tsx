@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
-import { useRouter } from 'next/router'
-import { Image } from "antd";
+import { useRouter } from "next/router";
+import { getTitles } from "../../utils";
 
 type Props = {
   recipeId: string;
@@ -48,27 +48,28 @@ const Card = Styled.div`
 `;
 
 const RecipeCard = (props: Props) => {
-  const router = useRouter()
-
-  const titles = props.title.split("with");
+  const router = useRouter();
+  const { title, subTitle } = getTitles(props.title);
 
   const openRecipeDetails = () => {
-    router.push(`/recipe/${props.recipeId}`, undefined, { shallow: true})
-  }
+    router.push(`/recipe/${props.recipeId}`, undefined, { shallow: true });
+  };
 
   return (
     <Card>
-      <Image
+      <img
         src={props.imageUrl}
-        preview={false}
         onClick={openRecipeDetails}
+        data-testid="recipe-image"
       />
-      <h2 onClick={openRecipeDetails}> {titles[0]} </h2>
-      <h3 onClick={openRecipeDetails}>
-        {`with ${titles[1]}`}
+      <h2 onClick={openRecipeDetails} data-testid="title">
+        {title}
+      </h2>
+      <h3 onClick={openRecipeDetails} data-testid="sub-title">
+        {subTitle}
       </h3>
     </Card>
   );
 };
 
-export default RecipeCard
+export default RecipeCard;

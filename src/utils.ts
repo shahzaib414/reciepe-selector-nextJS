@@ -3,3 +3,5 @@ export const getTitles = (title: string) => {
 
     return {title: titles[0], subTitle: `with ${titles[1]}`}
 }
+
+export const getUrl = (url?: string) => url ? `https:${url}` : ''

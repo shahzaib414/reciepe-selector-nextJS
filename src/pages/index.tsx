@@ -1,8 +1,9 @@
 import { Row, Col } from "antd";
 import styled from "styled-components";
 import RecipeCard from "../components/recipe/RecipeCard";
-import Header from "../components/common/layout/Header";
+import Header from "../layout/Header";
 import { useAppContext } from "../AppContext";
+import { getUrl } from "../utils";
 
 const Container = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const Home = () => {
           <Col key={index}>
             <RecipeCard
               title={r.title}
-              imageUrl={`https:${r.photo.url}`}
+              imageUrl={getUrl(r.photo.url)}
               recipeId={r.id}
             />
           </Col>

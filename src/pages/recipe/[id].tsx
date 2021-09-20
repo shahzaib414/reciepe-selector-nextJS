@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Styled from "styled-components";
 import { useAppContext } from "../../AppContext";
 import RecipeDetails from "../../components/recipe/RecipeDetails";
-import Header from "../../components/common/layout/Header";
+import Header from "../../layout/Header";
 
 const Container = Styled.div`
     display: flex;
@@ -11,13 +11,12 @@ const Container = Styled.div`
     margin-top: 70px;
 `;
 
-export default () => {
+const Recipe = () => {
   const router = useRouter();
   const { recipes } = useAppContext();
 
   const { id } = router.query;
   const recipe = recipes.find((r) => r.id === id);
-  console.log(recipe)
   return (
     <Container>
       <Header />
@@ -25,3 +24,5 @@ export default () => {
     </Container>
   );
 };
+
+export default Recipe

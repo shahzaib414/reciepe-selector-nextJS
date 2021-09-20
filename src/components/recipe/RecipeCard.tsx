@@ -19,7 +19,7 @@ const Card = Styled.div`
     @media only screen and (max-width: 436px) {
         width: auto
     }
-    .ant-image-img {
+    img {
         border-radius: 5px 5px 0 0;
         cursor: pointer;
     }

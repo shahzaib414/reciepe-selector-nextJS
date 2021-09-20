@@ -71,18 +71,18 @@ const RecipeDetails = (props: Props) => {
     <Container>
       <img src={`https:${props.recipe.photo.url}`} />
       <div className="details-wrapper">
-        <h2> {title} </h2>
-        <h3> {subTitle} </h3>
-        <div className="tag-wrapper">
-          {props.recipe.tags?.map((t) => (
-            <Tag>{t.name?.toUpperCase()}</Tag>
+        <h2 data-testid="title"> {title} </h2>
+        <h3 data-testid="sub-title"> {subTitle} </h3>
+        <div className="tag-wrapper" data-testid="tags">
+          {props.recipe.tags?.map((t, index) => (
+            <Tag key={index}>{t.name?.toUpperCase()}</Tag>
           ))}
         </div>
         <h3 className="description-title">What's cooking</h3>
         <p className="description"> {props.recipe.description} </p>
         {props.recipe.chef?.name && (
-          <p className="chef">
-            Shared with you by: <span>{props.recipe.chef?.name}</span>{" "}
+          <p className="chef" data-testid="chef">
+            Shared with you by: <span>{props.recipe.chef?.name}</span>
           </p>
         )}
       </div>

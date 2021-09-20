@@ -17,6 +17,7 @@ export default () => {
 
   const { id } = router.query;
   const recipe = recipes.find((r) => r.id === id);
+  console.log(recipe)
   return (
     <Container>
       <Header />

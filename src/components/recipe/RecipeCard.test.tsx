@@ -18,7 +18,6 @@ describe("RecipeCard", () => {
 
   it("Should render all details in component", () => {
     const {title, subTitle} = getTitles(defaultData.title);
-    console.log(title)
     const { container } = render(<RecipeCard {...defaultData} />);
     expect(screen.getByRole('img')).toHaveAttribute('src', defaultData.imageUrl)
     expect(container.querySelector("[data-testid=title]")).toHaveTextContent(title)

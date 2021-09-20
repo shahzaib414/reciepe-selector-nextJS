@@ -51,7 +51,6 @@ MyApp.getInitialProps = async () => {
         )?.fields.name,
       };
     });
-    console.log(entryItem.fields.chef)
     return {
       ...entryItem.fields,
       ...(entryItem.fields.chef && {
